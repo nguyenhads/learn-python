@@ -4,7 +4,7 @@
 
 ## **Single Responsibility Principle (SRP)**
 
-- A class should only have one reason to change. For example, a class that handles database connections should not also be responsible for rendering HTML.
+- A class should only have one responsibility. For example, a class that handles database connections should not also be responsible for rendering HTML.
 
 ```python
 # Bad example

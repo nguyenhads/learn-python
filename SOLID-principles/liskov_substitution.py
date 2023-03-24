@@ -2,8 +2,7 @@
 from abc import ABC, abstractmethod
 
 
-class Order():
-    
+class Order:
     def __init__(self):
         self.items = []
         self.quantities = []
@@ -29,24 +28,22 @@ class PaymentBase(ABC):
 
 
 class PayDebit(PaymentBase):
-    
     def pay(self, order, security_code):
         print(f"Verifying security code: {security_code}")
         order.status = "paid"
 
 
 class PayCredit(PaymentBase):
-    
     def pay(self, order, security_code):
         print(f"Verifying security code: {security_code}")
         order.status = "paid"
 
+
 # if we want to add net payment methods, we don't have to change the PaymentBase
 class PayPaypal(PaymentBase):
-    
-    def pay(self, order, security_code):
+    def pay(self, order, security_code):  # security code -> email
         print(f"Verifying security code: {security_code}")
-        order.status = "paid"       
+        order.status = "paid"
 
 
 order = Order()
@@ -64,7 +61,7 @@ payment.pay(order, "0372846")
 
 
 # class Order():
-    
+
 #     def __init__(self):
 #         self.items = []
 #         self.quantities = []
@@ -93,17 +90,17 @@ payment.pay(order, "0372846")
 
 #     def __init__(self, security_code):
 #         self.security_code = security_code
-            
+
 #     def pay(self, order):
 #         print(f"Verifying security code: {self.security_code}")
 #         order.status = "paid"
 
 
 # class PayCredit(PaymentBase):
-    
+
 #     def __init__(self, security_code):
 #         self.security_code = security_code
-        
+
 #     def pay(self, order):
 #         print(f"Verifying security code: {self.security_code}")
 #         order.status = "paid"
@@ -113,10 +110,10 @@ payment.pay(order, "0372846")
 
 #     def __init__(self, email):
 #         self.email = email
-            
+
 #     def pay(self, order):
 #         print(f"Verifying email: {self.email}")
-#         order.status = "paid"       
+#         order.status = "paid"
 
 
 # order = Order()
