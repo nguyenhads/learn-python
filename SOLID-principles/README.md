@@ -1,6 +1,11 @@
 ## Design patterns and SOLID principle
 
-- `SOLID` is a set of principles for writing maintainable and scalable code. Here is a brief explanation of each principle along with an example in Python:
+- `SOLID` is a set of principles for writing maintainable and scalable code.
+  - To make the code more maintainable and easier to quickly extend the system with new functionality without breaking the existing ones.
+  - To make the code easier to read and understand, thus spend less time figuring out what it does and more time actually developing the solution.
+  - Introduced by Robert Martin (Uncle Bob).
+
+- Here is a brief explanation of each principle along with an example in Python:
 
 ## **Single Responsibility Principle (SRP)**
 
@@ -59,7 +64,7 @@ class Square(Shape):
 
 ## **Liskov Substitution Principle (LSP)**
 
-- Subclasses should be able to replace their parent class without affecting the correctness of the program.
+- Subclasses should be able to replace their parent class without affecting the correctness of the program. In other words, the children classes should be followed by the logic of their parent classes.
 
 ```python
 # Bad example
@@ -88,7 +93,11 @@ class Square(Rectangle):
         self.height = height
 
 # Good example
-class Shape:
+import abc import ABC, abstractmethod
+
+class Shape(ABC):
+    
+    @abstractmethod
     def area(self):
         pass
 
@@ -104,14 +113,14 @@ class Square(Shape):
     def __init__(self, side):
         self.side = side
 
-    def area(self):
+    def area(self): # error will be occur if we dont have area method or different name like cal_area()
         return self.side ** 2
 
 ```
 
 ## **Interface Segregation Principle (ISP)**
 
-- A client should not be forced to implement interfaces they do not use.
+- A client should not be forced to implement interfaces they do not use. Or it it better if you have several specific interfaces rather than 1 general purpose interface
 
 ```python
 # Bad example
