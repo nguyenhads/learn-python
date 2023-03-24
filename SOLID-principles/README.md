@@ -3,7 +3,7 @@
 - `SOLID` is a set of principles for writing maintainable and scalable code.
   - To make the code more maintainable and easier to quickly extend the system with new functionality without breaking the existing ones.
   - To make the code easier to read and understand, thus spend less time figuring out what it does and more time actually developing the solution.
-  - Introduced by Robert Martin (Uncle Bob).
+  - Introduced by [Robert Martin (Uncle Bob)](https://en.wikipedia.org/wiki/Robert_C._Martin).
 
 - Here is a brief explanation of each principle along with an example in Python:
 
@@ -120,7 +120,7 @@ class Square(Shape):
 
 ## **Interface Segregation Principle (ISP)**
 
-- A client should not be forced to implement interfaces they do not use. Or it it better if you have several specific interfaces rather than 1 general purpose interface
+- A client should not be forced to implement interfaces they do not use. Or it better if you have several specific interfaces rather than 1 general purpose interface
 
 ```python
 # Bad example
@@ -171,6 +171,8 @@ class Photocopier(Printer, Scanner):
 ## **Dependency Inversion Principle (DIP)**
 
 - High-level modules should not depend on low-level modules. Both should depend on abstractions.
+  - Never depend on anything concrete, only depend on abstractions
+  - Able to change an implementation easily without altering the high level code.
 
 ```python
 # Bad example

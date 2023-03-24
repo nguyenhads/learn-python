@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 
 
 class Order:
-
     def __init__(self):
         self.items = []
         self.quantities = []
@@ -23,7 +22,6 @@ class Order:
 
 
 class SMSAuthorizer:
-
     def __init__(self):
         self.authorized = False
 
@@ -36,15 +34,15 @@ class SMSAuthorizer:
 
 
 class PaymentProcessor(ABC):
-
     @abstractmethod
     def pay(self, order):
         pass
 
 
 class DebitPaymentProcessor(PaymentProcessor):
-
-    def __init__(self, security_code, authorizer: SMSAuthorizer):
+    def __init__(
+        self, security_code, authorizer: SMSAuthorizer
+    ):  # this code is depend on specific SMSAuthorizer
         self.security_code = security_code
         self.authorizer = authorizer
 
@@ -57,7 +55,6 @@ class DebitPaymentProcessor(PaymentProcessor):
 
 
 class CreditPaymentProcessor(PaymentProcessor):
-
     def __init__(self, security_code):
         self.security_code = security_code
 
@@ -68,7 +65,6 @@ class CreditPaymentProcessor(PaymentProcessor):
 
 
 class PaypalPaymentProcessor(PaymentProcessor):
-
     def __init__(self, email_address, authorizer: SMSAuthorizer):
         self.email_address = email_address
         self.authorizer = authorizer
